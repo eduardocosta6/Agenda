@@ -87,7 +87,6 @@ if (!$user) {
                 <h1>Edit User</h1>
                 <div class="header-actions">
                     <a href="admin_panel.php?page=users" class="btn back">Back to Users</a>
-                    <a href="logout.php" class="logout-btn">Logout</a>
                 </div>
             </div>
 
