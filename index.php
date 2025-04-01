@@ -1,6 +1,13 @@
 <?php
 require_once 'config/database.php';
 require_once 'components/navbar.php';
+require_once 'includes/session.php';
+
+// Redirect admin users to admin panel
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
+    header("Location: admin_panel.php");
+    exit();
+}
 
 $sql = "SELECT * FROM events ORDER BY event_date ASC";
 $result = $conn->query($sql);
@@ -40,5 +47,7 @@ $result = $conn->query($sql);
     </div>
 </body>
 </html>
+
+
 
 

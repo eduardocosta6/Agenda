@@ -12,9 +12,6 @@ function renderNavbar($activePage = '') {
                 <ul class="nav-links">
                     <li><a href="index.php" class="<?php echo ($activePage == 'home') ? 'active' : ''; ?>">Home</a></li>
                     <?php if (isLoggedIn()): ?>
-                        <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
-                            <li><a href="admin_panel.php" class="<?php echo ($activePage == 'admin') ? 'active' : ''; ?>">Admin Panel</a></li>
-                        <?php endif; ?>
                         <li><a href="add_event.php" class="<?php echo ($activePage == 'add') ? 'active' : ''; ?>">Add Event</a></li>
                         <li><a href="logout.php">Logout</a></li>
                     <?php else: ?>
@@ -28,6 +25,7 @@ function renderNavbar($activePage = '') {
     <?php
 }
 ?>
+
 
 
 
