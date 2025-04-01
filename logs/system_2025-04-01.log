@@ -1,0 +1,9 @@
+[2025-04-01 14:18:34] Failed Login - User: System - Failed login attempt for non-existent email: leitor1@hospital.pt - IP: ::1
+[2025-04-01 14:18:41] Login - User: 7 - User: Admin User1 (ID: 7) - Role: admin - IP: ::1
+[2025-04-01 15:15:33] Failed Login - User: System - Failed login attempt for email: teste2@teste.com (Invalid password) - IP: ::1
+[2025-04-01 15:15:42] Failed Login - User: System - Failed login attempt for email: teste2@teste.com (Invalid password) - IP: ::1
+[2025-04-01 15:20:42] Failed Login - User: System - Failed login attempt for email: teste2@teste.com (Invalid password) - IP: ::1
+[2025-04-01 15:21:19] Failed Login - User: System - Failed login attempt for email: admin1@example.com (Invalid password) - IP: ::1
+[2025-04-01 15:28:02] User Update - User: 7 - Updated user ID: 8 - New role: moderator - IP: ::1
+[2025-04-01 15:33:24] Login Success - User: 8 - User: teste2 (ID: 8) - Role: moderator - IP: ::1
+[2025-04-01 15:35:46] Login Success - User: 7 - User: Admin User1 (ID: 7) - Role: admin - IP: ::1

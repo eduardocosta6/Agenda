@@ -3,8 +3,8 @@ require_once 'config/database.php';
 require_once 'components/navbar.php';
 require_once 'includes/session.php';
 
-// Redirect admin users to admin panel
-if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
+// Redirect admin/moderator users to admin panel
+if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], ['admin', 'moderator'])) {
     header("Location: admin_panel.php");
     exit();
 }
@@ -47,6 +47,7 @@ $result = $conn->query($sql);
     </div>
 </body>
 </html>
+
 
 
 

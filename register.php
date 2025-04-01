@@ -26,9 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             // Insert new user
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, 'user')";
+            $default_role = 'user';
+            $sql = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sss", $name, $email, $hashed_password);
+            $stmt->bind_param("ssss", $name, $email, $hashed_password, $default_role);
             
             if ($stmt->execute()) {
                 $_SESSION['user_id'] = $conn->insert_id;

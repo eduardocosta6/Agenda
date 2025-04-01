@@ -9,23 +9,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT id, password, role, name FROM users WHERE email = ?";
+    $sql = "SELECT id, password, role, name, status FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
     
     if ($user = $result->fetch_assoc()) {
-        if (password_verify($password, $user['password'])) {
+        if ($user['status'] === 'inactive') {
+            $error = "This account has been deactivated";
+            log_action('Failed Login', "Failed login attempt for email: $email (Account inactive)");
+        } elseif (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_role'] = $user['role'];
             
             // Log the successful login
             $details = "User: " . $user['name'] . " (ID: " . $user['id'] . ") - Role: " . $user['role'];
-            log_action('Login', $details);
+            log_action('Login Success', $details);
             
             // Redirect based on role
-            if ($user['role'] === 'admin') {
+            if (in_array($user['role'], ['admin', 'moderator'])) {
                 header("Location: admin_panel.php");
             } else {
                 header("Location: index.php");
@@ -33,13 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             $error = "Invalid password";
-            // Log failed login attempt
-            log_action('Failed Login', "Failed login attempt for email: " . $email . " (Invalid password)");
+            log_action('Failed Login', "Failed login attempt for email: $email (Invalid password)");
         }
     } else {
-        $error = "Email not found";
-        // Log failed login attempt
-        log_action('Failed Login', "Failed login attempt for email: " . $email . " (Email not found)");
+        $error = "User not found";
+        log_action('Failed Login', "Failed login attempt for non-existent email: $email");
     }
 }
 ?>
@@ -78,5 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 </html>
+
+
+
+
 
 

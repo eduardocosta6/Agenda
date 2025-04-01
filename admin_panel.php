@@ -3,22 +3,33 @@ require_once 'config/database.php';
 require_once 'includes/session.php';
 require_once 'components/admin_sidebar.php';
 
-// Verify admin access
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+// Verify admin/moderator access
+if (!isset($_SESSION['user_role']) || !in_array($_SESSION['user_role'], ['admin', 'moderator'])) {
     header("Location: index.php");
     exit();
 }
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'users';
+$is_moderator = $_SESSION['user_role'] === 'moderator';
 
-// Fetch data based on page
+// Fetch data based on page and role
 switch($page) {
     case 'users':
-        $sql = "SELECT id, name, email, role, created_at FROM users ORDER BY created_at DESC";
+        if ($is_moderator) {
+            // Moderators can only see regular users
+            $sql = "SELECT id, name, email, role, status, created_at FROM users WHERE role = 'user' ORDER BY created_at DESC";
+        } else {
+            $sql = "SELECT id, name, email, role, status, created_at FROM users ORDER BY created_at DESC";
+        }
         $result = $conn->query($sql);
         break;
     case 'logs':
-        $sql = "SELECT * FROM logs ORDER BY created_at DESC LIMIT 100";
+        if ($is_moderator) {
+            // Moderators see only user-related logs
+            $sql = "SELECT * FROM logs WHERE action NOT LIKE '%Admin%' ORDER BY created_at DESC LIMIT 100";
+        } else {
+            $sql = "SELECT * FROM logs ORDER BY created_at DESC LIMIT 100";
+        }
         $result = $conn->query($sql);
         break;
 }
@@ -34,14 +45,11 @@ switch($page) {
 </head>
 <body>
     <div class="admin-layout">
-        <?php renderAdminSidebar($page); ?>
+        <?php renderAdminSidebar($page, $is_moderator); ?>
         
         <div class="content">
             <div class="content-header">
                 <h1><?php echo ucfirst($page); ?> Management</h1>
-                <div class="header-actions">
-                    <a href="logout.php" class="logout-btn">Logout</a>
-                </div>
             </div>
 
             <div class="data-table">
@@ -53,24 +61,32 @@ switch($page) {
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Status</th>
                                 <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php while($row = $result->fetch_assoc()): ?>
-                                <tr>
+                                <tr class="<?php echo $row['status'] === 'inactive' ? 'inactive-user' : ''; ?>">
                                     <td><?php echo htmlspecialchars($row['id']); ?></td>
                                     <td><?php echo htmlspecialchars($row['name']); ?></td>
                                     <td><?php echo htmlspecialchars($row['email']); ?></td>
                                     <td><?php echo htmlspecialchars($row['role']); ?></td>
+                                    <td>
+                                        <span class="status-badge <?php echo $row['status']; ?>">
+                                            <?php echo ucfirst($row['status']); ?>
+                                        </span>
+                                    </td>
                                     <td><?php echo date('Y-m-d H:i', strtotime($row['created_at'])); ?></td>
                                     <td>
                                         <a href="edit_user.php?id=<?php echo $row['id']; ?>" class="action-btn edit-btn">Edit</a>
                                         <?php if($row['email'] !== 'admin@example.com'): ?>
-                                            <a href="delete_user.php?id=<?php echo $row['id']; ?>" 
-                                               class="action-btn delete-btn"
-                                               onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+                                            <a href="toggle_user_status.php?id=<?php echo $row['id']; ?>&status=<?php echo $row['status'] === 'active' ? 'inactive' : 'active'; ?>" 
+                                               class="action-btn <?php echo $row['status'] === 'active' ? 'deactivate-btn' : 'activate-btn'; ?>"
+                                               onclick="return confirm('Are you sure you want to <?php echo $row['status'] === 'active' ? 'deactivate' : 'activate'; ?> this user?')">
+                                                <?php echo $row['status'] === 'active' ? 'Deactivate' : 'Activate'; ?>
+                                            </a>
                                         <?php endif; ?>
                                     </td>
                                 </tr>
@@ -106,6 +122,12 @@ switch($page) {
     </div>
 </body>
 </html>
+
+
+
+
+
+
 
 
 
