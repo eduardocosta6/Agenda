@@ -94,28 +94,39 @@ switch($page) {
                         </tbody>
                     </table>
                 <?php elseif ($page === 'logs'): ?>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Action</th>
-                                <th>User</th>
-                                <th>Timestamp</th>
-                                <th>Details</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if ($result): while($log = $result->fetch_assoc()): ?>
+                    <div class="data-table logs-table">
+                        <table>
+                            <thead>
                                 <tr>
-                                    <td><?php echo htmlspecialchars($log['id']); ?></td>
-                                    <td><?php echo htmlspecialchars($log['action']); ?></td>
-                                    <td><?php echo htmlspecialchars($log['user']); ?></td>
-                                    <td><?php echo date('Y-m-d H:i:s', strtotime($log['created_at'])); ?></td>
-                                    <td><?php echo htmlspecialchars($log['details']); ?></td>
+                                    <th>ID</th>
+                                    <th>Action</th>
+                                    <th>User</th>
+                                    <th>Timestamp</th>
+                                    <th>Details</th>
                                 </tr>
-                            <?php endwhile; endif; ?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <?php if ($result): while($log = $result->fetch_assoc()): 
+                                    $action_class = '';
+                                    if ($log['action'] === 'Login Success' || $log['action'] === 'Login') {
+                                        $action_class = 'action-login-success';
+                                    } elseif ($log['action'] === 'Failed Login') {
+                                        $action_class = 'action-failed-login';
+                                    } elseif ($log['action'] === 'User Update' || $log['action'] === 'User Status Change') {
+                                        $action_class = 'action-user-update';
+                                    }
+                                ?>
+                                    <tr>
+                                        <td>#<?php echo str_pad($log['id'], 6, '0', STR_PAD_LEFT); ?></td>
+                                        <td class="<?php echo $action_class; ?>"><?php echo htmlspecialchars($log['action']); ?></td>
+                                        <td><?php echo htmlspecialchars($log['user']); ?></td>
+                                        <td><?php echo date('Y-m-d H:i:s', strtotime($log['created_at'])); ?></td>
+                                        <td><?php echo htmlspecialchars($log['details']); ?></td>
+                                    </tr>
+                                <?php endwhile; endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
