@@ -1,0 +1,142 @@
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    padding: 8px 16px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    color: #495057;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: #e9ecef;
+}
+
+.calendar {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.weekday {
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #495057;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+    min-height: 120px;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.day:not(.empty):hover {
+    background-color: #f8f9fa;
+}
+
+.day.empty {
+    background-color: #f8f9fa;
+    cursor: default;
+}
+
+.day.today {
+    background-color: #e8f4ff;
+}
+
+.date {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 14px;
+    color: #495057;
+}
+
+.today .date {
+    background-color: #007bff;
+    color: white;
+}
+
+.events {
+    margin-top: 30px;
+}
+
+.event {
+    background-color: #e9ecef;
+    border-left: 3px solid #007bff;
+    padding: 4px 8px;
+    margin-bottom: 4px;
+    border-radius: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.event:hover {
+    background-color: #dee2e6;
+}
+
+.event-time {
+    color: #6c757d;
+    margin-right: 5px;
+}
+
+.event-title {
+    font-weight: 500;
+    color: #212529;
+}
+
+/* Remove these styles as they're no longer needed */
+.calendar-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn.add-event {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn.add-event:hover {
+    background-color: #218838;
+}
+

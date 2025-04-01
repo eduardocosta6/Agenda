@@ -111,76 +111,6 @@
     color: #2c3e50;
 }
 
-/* System Logs Styling */
-.data-table.logs-table {
-    background: white;
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    flex: 1; /* This will make it fill the remaining space */
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Hide overflow on the container */
-}
-
-.logs-table table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    color: #1e1e1e;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    flex: 1; /* Make table fill the container */
-    overflow-y: auto; /* Enable scrolling on the table */
-}
-
-/* Rest of the logs styling remains the same */
-.logs-table thead {
-    display: none;
-}
-
-.logs-table tbody {
-    display: block; /* Enable scrolling for tbody */
-    overflow-y: auto; /* Enable scrolling for tbody */
-    height: 100%; /* Take full height */
-}
-
-.logs-table tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-}
-
-.logs-table td {
-    padding: 0.4rem 0.75rem;
-    border: none;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Column widths */
-.logs-table td:first-child { width: 10%; } /* ID */
-.logs-table td:nth-child(2) { width: 15%; } /* Action */
-.logs-table td:nth-child(3) { width: 15%; } /* User */
-.logs-table td:nth-child(4) { width: 15%; } /* Timestamp */
-.logs-table td:nth-child(5) { width: 45%; } /* Details */
-
-/* Different colors for different types of actions */
-.logs-table .action-login-success {
-    color: #27ae60; /* Verde para login success */
-}
-
-.logs-table .action-failed-login {
-    color: #e74c3c; /* Vermelho para failed login */
-}
-
-.logs-table .action-user-update {
-    color: #3498db; /* Azul para user update */
-}
-
-/* Rest of your existing logs styling... */
 .data-table {
     background: white;
     border-radius: 8px;
@@ -205,6 +135,11 @@
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+}
+
+.data-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
 }
 
 .data-table tr:hover {
@@ -238,6 +173,64 @@
 
 .activate-btn {
     background-color: #28a745;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.status-badge.active {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-badge.inactive {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.inactive-user {
+    opacity: 0.7;
+}
+
+/* Terminal-style ONLY for logs table */
+.logs-table {
+    background: #1e1e1e !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    color: #ffffff !important;
+}
+
+.logs-table table {
+    width: 100%;
+}
+
+.logs-table th {
+    color: #ffffff !important;
+    background-color: #1e1e1e !important;
+}
+
+.logs-table td {
+    color: #ffffff;
+}
+
+.logs-table tr:hover {
+    background-color: #2a2a2a !important;
+}
+
+/* Log action colors */
+.logs-table .action-login-success {
+    color: #00ff00;
+}
+
+.logs-table .action-failed-login {
+    color: #ff0000;
+}
+
+.logs-table .action-user-update {
+    color: #00ffff;
 }
 
 .header-actions {
@@ -357,27 +350,6 @@
 
 .btn.submit:hover {
     background-color: #0056b3;
-}
-
-.status-badge {
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.85em;
-    font-weight: 500;
-}
-
-.status-badge.active {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.status-badge.inactive {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-.inactive-user {
-    opacity: 0.7;
 }
 
 .role-badge {
@@ -548,17 +520,48 @@
     display: inline-block;
 }
 
-/* Different colors for different types of actions */
+/* Terminal-style logs table */
+.logs-table {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+}
+
+.logs-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.logs-table th {
+    color: #ffffff;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    font-weight: bold;
+}
+
+.logs-table td {
+    padding: 8px 10px;
+    border: none;
+}
+
+.logs-table tr:hover {
+    background-color: #2a2a2a;
+}
+
+/* Log action colors */
 .logs-table .action-login-success {
-    color: #27ae60; /* Verde para login success */
+    color: #00ff00; /* Bright green for login success and login */
 }
 
 .logs-table .action-failed-login {
-    color: #e74c3c; /* Vermelho para failed login */
+    color: #ff0000; /* Bright red for failed login */
 }
 
 .logs-table .action-user-update {
-    color: #3498db; /* Azul para user update */
+    color: #00ffff; /* Cyan for user update and status change */
 }
 
 

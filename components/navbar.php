@@ -12,7 +12,7 @@ function renderNavbar($activePage = '') {
                 <ul class="nav-links">
                     <li><a href="index.php" class="<?php echo ($activePage == 'home') ? 'active' : ''; ?>">Home</a></li>
                     <?php if (isLoggedIn()): ?>
-                        <li><a href="add_event.php" class="<?php echo ($activePage == 'add') ? 'active' : ''; ?>">Add Event</a></li>
+                        <li><a href="calendar.php" class="<?php echo ($activePage == 'calendar') ? 'active' : ''; ?>">Calendar</a></li>
                         <li><a href="logout.php">Logout</a></li>
                     <?php else: ?>
                         <li><a href="login.php" class="<?php echo ($activePage == 'login') ? 'active' : ''; ?>">Login</a></li>

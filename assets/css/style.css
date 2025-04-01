@@ -11,35 +11,73 @@ body {
 }
 
 .container {
-    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+}
+
+.page-title {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.events-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.date-group {
+    margin-bottom: 40px;
+}
+
+.date-header {
+    color: #2c3e50;
+    font-size: 1.5em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+    margin-bottom: 20px;
 }
 
 .event-card {
     background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    overflow: hidden;
 }
 
-.event-card h3 {
-    color: #333;
-    margin-bottom: 10px;
+.event-time {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
 
-.event-card .date {
+.event-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.event-title {
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+}
+
+.event-description {
     color: #666;
-    font-size: 0.9em;
-    margin-bottom: 10px;
-}
-
-.event-card .description {
-    color: #444;
     margin-bottom: 15px;
+    line-height: 1.5;
 }
 
-.actions {
+.event-actions {
     display: flex;
     gap: 10px;
 }
@@ -51,14 +89,20 @@ body {
     color: #fff;
     cursor: pointer;
     border: none;
+    font-size: 0.9em;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
 }
 
 .btn.edit {
-    background-color: #28a745;
+    background-color: #27ae60;
 }
 
 .btn.delete {
-    background-color: #dc3545;
+    background-color: #e74c3c;
 }
 
 .btn.submit {
@@ -102,8 +146,24 @@ body {
 
 .no-events {
     text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.no-events p {
     color: #666;
-    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.no-events a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.no-events a:hover {
+    text-decoration: underline;
 }
 
 .error-message {
@@ -124,5 +184,43 @@ body {
     background-color: #c82333;
 }
 
+/* Add these new styles for the welcome section */
+.welcome-section {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
+.welcome-title {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
 
+.welcome-text {
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.welcome-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn.login {
+    background-color: #3498db;
+    padding: 12px 30px;
+    font-size: 1.1em;
+}
+
+.btn.register {
+    background-color: #2ecc71;
+    padding: 12px 30px;
+    font-size: 1.1em;
+}
