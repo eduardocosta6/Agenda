@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.event-card {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.event-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.event-card .date {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.event-card .description {
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}
+
+.btn.edit {
+    background-color: #28a745;
+}
+
+.btn.delete {
+    background-color: #dc3545;
+}
+
+.btn.submit {
+    background-color: #007bff;
+}
+
+.event-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn.submit {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.no-events {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+}
+
+.nav-links .logout {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.nav-links .logout:hover {
+    background-color: #c82333;
+}
+
+
+
