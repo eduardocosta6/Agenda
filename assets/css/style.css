@@ -224,3 +224,174 @@ body {
     padding: 12px 30px;
     font-size: 1.1em;
 }
+
+/* Add these new styles while keeping the existing ones */
+
+.modern {
+    transition: all 0.3s ease;
+}
+
+.event-card.modern {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+.event-card.modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-card.modern .event-time {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    padding: 25px;
+    min-width: 140px;
+    font-size: 1.1em;
+}
+
+.event-card.modern .event-time i {
+    margin-right: 8px;
+}
+
+.event-card.modern .event-content {
+    padding: 25px;
+}
+
+.event-card.modern .event-title {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.date-header {
+    font-size: 1.6em;
+    color: #2c3e50;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    margin-bottom: 25px;
+}
+
+.date-header i {
+    margin-right: 10px;
+    color: #3498db;
+}
+
+.welcome-section.modern {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    padding: 80px 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-icon {
+    font-size: 4em;
+    color: #3498db;
+    margin-bottom: 30px;
+}
+
+.welcome-title {
+    font-size: 2.8em;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.welcome-text {
+    font-size: 1.4em;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.welcome-actions {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn i {
+    font-size: 1.1em;
+}
+
+.btn.login {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.btn.register {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.btn.edit {
+    background: linear-gradient(135deg, #27ae60, #219a52);
+}
+
+.btn.delete {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.no-events.modern {
+    text-align: center;
+    padding: 60px;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.no-events.modern i {
+    font-size: 4em;
+    color: #95a5a6;
+    margin-bottom: 20px;
+}
+
+.no-events.modern p {
+    font-size: 1.2em;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+.no-events.modern a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.no-events.modern a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .event-card.modern {
+        flex-direction: column;
+    }
+
+    .event-card.modern .event-time {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .welcome-section.modern {
+        padding: 40px 20px;
+    }
+
+    .welcome-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
