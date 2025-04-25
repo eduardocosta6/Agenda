@@ -113,7 +113,7 @@
                             foreach ($events[$day] as $event) {
                                 $time = date('H:i', strtotime($event['event_date']));
                                 echo "<div class='event' data-event-id='{$event['id']}'>";
-                                echo "<span class='event-time'>$time</span>";
+                                echo "<span class='event-time'><i class='far fa-clock'></i> $time</span>";
                                 echo "<span class='event-title'>" . htmlspecialchars($event['title']) . "</span>";
                                 echo "</div>";
                             }

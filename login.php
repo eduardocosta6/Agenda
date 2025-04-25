@@ -27,8 +27,12 @@
                 $details = "User: " . $user['name'] . " (ID: " . $user['id'] . ") - Role: " . $user['role'];
                 log_action('Login Success', $details);
 
-                // Redirect to home page
-                header("Location: index.php");
+                // Redirect based on role
+                if (in_array($user['role'], ['admin', 'moderator'])) {
+                    header("Location: dashboard.php");
+                } else {
+                    header("Location: index.php");
+                }
                 exit();
             } else {
                 $error = "Invalid password";

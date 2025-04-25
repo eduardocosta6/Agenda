@@ -1,0 +1,332 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--dark-color);
+  color: var(--white-color);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-header h2 {
+  color: var(--white-color);
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.user-email {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.sidebar-menu li {
+  margin: 0;
+}
+
+.sidebar-menu a {
+  color: var(--white-color);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: var(--transition);
+  border-left: 3px solid transparent;
+}
+
+.sidebar-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--primary-color);
+}
+
+.sidebar-menu a.active {
+  background-color: var(--primary-color);
+  border-left-color: var(--white-color);
+}
+
+.sidebar-menu a i {
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logout-btn,
+.back-btn {
+  display: flex;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-sm);
+  color: var(--white-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.logout-btn {
+  background-color: var(--danger-color);
+}
+
+.back-btn {
+  background-color: var(--secondary-color);
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+}
+
+.back-btn:hover {
+  background-color: #5a6268;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 250px;
+}
+
+.content-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.content-header h1 {
+  font-size: 1.75rem;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+.data-table {
+  background-color: var(--white-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.data-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+  background-color: var(--light-color);
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:hover td {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.action-btn {
+  padding: 0.5rem;
+  border-radius: 50%;
+  text-decoration: none;
+  color: var(--white-color);
+  margin-right: 0.5rem;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  transition: var(--transition);
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.edit-btn {
+  background-color: var(--primary-color);
+}
+
+.delete-btn {
+  background-color: var(--danger-color);
+}
+
+.deactivate-btn {
+  background-color: var(--warning-color);
+  color: var(--dark-color);
+}
+
+.activate-btn {
+  background-color: var(--success-color);
+}
+
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status-badge.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.inactive {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.inactive-user {
+  opacity: 0.7;
+}
+
+/* Log styling with black background and different text colors based on severity */
+.data-table.logs-table {
+  background-color: #1e1e1e; /* Dark background for the entire table */
+  color: #cccccc; /* Default text color for the table */
+  border: 1px solid #333;
+}
+
+.data-table.logs-table th {
+  background-color: #2d2d2d; /* Slightly lighter background for headers */
+  color: #ffffff;
+  border-bottom: 1px solid #444;
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+}
+
+.data-table.logs-table td {
+  border-bottom: 1px solid #333;
+  padding: 0.75rem 1rem;
+}
+
+/* Log severity classes */
+.log-normal,
+.data-table.logs-table tr.log-normal td {
+  color: #cccccc; /* Light gray for normal logs */
+}
+
+.log-danger,
+.data-table.logs-table tr.log-danger td {
+  color: #ff5252; /* Red for high severity/danger logs */
+}
+
+.log-warning,
+.data-table.logs-table tr.log-warning td {
+  color: #ffb74d; /* Orange for warning logs */
+}
+
+.log-success,
+.data-table.logs-table tr.log-success td {
+  color: #69f0ae; /* Green for success logs */
+}
+
+.log-info,
+.data-table.logs-table tr.log-info td {
+  color: #40c4ff; /* Blue for informational logs */
+}
+
+/* Hover effect for log rows */
+.data-table.logs-table tr:hover td {
+  background-color: #2a2a2a; /* Slightly lighter on hover */
+}
+
+/* Preserve text colors on hover */
+.data-table.logs-table tr.log-danger:hover td {
+  color: #ff5252;
+}
+
+.data-table.logs-table tr.log-warning:hover td {
+  color: #ffb74d;
+}
+
+.data-table.logs-table tr.log-success:hover td {
+  color: #69f0ae;
+}
+
+.data-table.logs-table tr.log-info:hover td {
+  color: #40c4ff;
+}
+
+.data-table.logs-table tr.log-normal:hover td {
+  color: #cccccc;
+}
+
+@media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .action-btn {
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: center;
+  }
+}
