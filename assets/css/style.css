@@ -1,397 +1,591 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #4a6cf7;
+  --primary-dark: #3a56d4;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --white-color: #ffffff;
+  --body-bg: #f5f8ff;
+  --card-bg: #ffffff;
+  --border-color: #e9ecef;
+  --text-color: #495057;
+  --text-muted: #6c757d;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --transition: all 0.3s ease;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
+  font-family: var(--font-family);
+  line-height: 1.6;
+  background-color: var(--body-bg);
+  color: var(--text-color);
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .page-title {
-    font-size: 2em;
-    color: #2c3e50;
-    margin-bottom: 30px;
-    text-align: center;
+  font-size: 2rem;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.page-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.subtle-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.subtle-link:hover {
+  color: var(--primary-color);
+}
+
+main {
+  padding: 1rem 0;
 }
 
 .events-timeline {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .date-group {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .date-header {
-    color: #2c3e50;
-    font-size: 1.5em;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #3498db;
-    margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 1.5em;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+  margin-bottom: 20px;
 }
 
 .event-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    display: flex;
-    overflow: hidden;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  overflow: hidden;
 }
 
 .event-time {
-    background-color: #3498db;
-    color: white;
-    padding: 20px;
-    min-width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+  background-color: #3498db;
+  color: white;
+  padding: 20px;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .event-content {
-    padding: 20px;
-    flex-grow: 1;
+  padding: 20px;
+  flex-grow: 1;
 }
 
 .event-title {
-    color: #2c3e50;
-    margin: 0 0 10px 0;
-    font-size: 1.2em;
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
 }
 
 .event-description {
-    color: #666;
-    margin-bottom: 15px;
-    line-height: 1.5;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
 }
 
 .event-actions {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .btn {
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    font-size: 0.9em;
-    transition: opacity 0.2s;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-size: 0.9em;
+  transition: opacity 0.2s;
 }
 
 .btn:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 .btn.edit {
-    background-color: #27ae60;
+  background-color: #27ae60;
 }
 
 .btn.delete {
-    background-color: #e74c3c;
+  background-color: #e74c3c;
 }
 
 .btn.submit {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
 .event-form {
-    max-width: 500px;
-    margin: 2rem auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 2rem auto;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
 }
 
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 1.5rem;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: var(--transition);
+  background-color: var(--white-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.selected-date {
+  padding: 0.75rem 1rem;
+  background-color: var(--light-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 500;
+  display: block;
 }
 
 .btn.submit {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    font-weight: 500;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .no-events {
-    text-align: center;
-    padding: 40px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .no-events p {
-    color: #666;
-    margin-bottom: 10px;
+  color: #666;
+  margin-bottom: 10px;
 }
 
 .no-events a {
-    color: #3498db;
-    text-decoration: none;
+  color: #3498db;
+  text-decoration: none;
 }
 
 .no-events a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .error-message {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    border: 1px solid #f5c6cb;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
 }
 
 .nav-links .logout {
-    background-color: #dc3545;
-    color: #fff;
+  background-color: #dc3545;
+  color: #fff;
 }
 
 .nav-links .logout:hover {
-    background-color: #c82333;
+  background-color: #c82333;
 }
 
 /* Add these new styles for the welcome section */
 .welcome-section {
-    text-align: center;
-    padding: 60px 20px;
-    max-width: 600px;
-    margin: 40px auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .welcome-title {
-    color: #2c3e50;
-    font-size: 2.5em;
-    margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 2.5em;
+  margin-bottom: 20px;
 }
 
 .welcome-text {
-    color: #666;
-    font-size: 1.2em;
-    margin-bottom: 30px;
+  color: #666;
+  font-size: 1.2em;
+  margin-bottom: 30px;
 }
 
 .welcome-actions {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
 .btn.login {
-    background-color: #3498db;
-    padding: 12px 30px;
-    font-size: 1.1em;
+  background-color: #3498db;
+  padding: 12px 30px;
+  font-size: 1.1em;
 }
 
 .btn.register {
-    background-color: #2ecc71;
-    padding: 12px 30px;
-    font-size: 1.1em;
+  background-color: #2ecc71;
+  padding: 12px 30px;
+  font-size: 1.1em;
 }
 
 /* Add these new styles while keeping the existing ones */
 
 .modern {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .event-card.modern {
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 25px;
-    border: 1px solid #eee;
-    overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+  border: 1px solid #eee;
+  overflow: hidden;
 }
 
 .event-card.modern:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .event-card.modern .event-time {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    padding: 25px;
-    min-width: 140px;
-    font-size: 1.1em;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  padding: 25px;
+  min-width: 140px;
+  font-size: 1.1em;
 }
 
 .event-card.modern .event-time i {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 .event-card.modern .event-content {
-    padding: 25px;
+  padding: 25px;
 }
 
 .event-card.modern .event-title {
-    font-size: 1.4em;
-    margin-bottom: 15px;
+  font-size: 1.4em;
+  margin-bottom: 15px;
 }
 
 .date-header {
-    font-size: 1.6em;
-    color: #2c3e50;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #3498db;
-    margin-bottom: 25px;
+  font-size: 1.6em;
+  color: #2c3e50;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #3498db;
+  margin-bottom: 25px;
 }
 
 .date-header i {
-    margin-right: 10px;
-    color: #3498db;
+  margin-right: 10px;
+  color: #3498db;
 }
 
 .welcome-section.modern {
-    background: linear-gradient(135deg, #ffffff, #f8f9fa);
-    padding: 80px 40px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  padding: 80px 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .welcome-icon {
-    font-size: 4em;
-    color: #3498db;
-    margin-bottom: 30px;
+  font-size: 4em;
+  color: #3498db;
+  margin-bottom: 30px;
 }
 
 .welcome-title {
-    font-size: 2.8em;
-    color: #2c3e50;
-    margin-bottom: 25px;
+  font-size: 2.8em;
+  color: #2c3e50;
+  margin-bottom: 25px;
 }
 
 .welcome-text {
-    font-size: 1.4em;
-    color: #666;
-    margin-bottom: 40px;
-    line-height: 1.6;
+  font-size: 1.4em;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.6;
 }
 
 .welcome-actions {
-    display: flex;
-    gap: 25px;
-    justify-content: center;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
 }
 
 .btn {
-    padding: 12px 30px;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  color: var(--white-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn i {
-    font-size: 1.1em;
+  font-size: 1rem;
+}
+
+.btn.primary {
+  background: var(--primary-color);
+}
+
+.btn.secondary {
+  background: var(--secondary-color);
+}
+
+.btn.success,
+.btn.edit {
+  background: var(--success-color);
+}
+
+.btn.danger,
+.btn.delete {
+  background: var(--danger-color);
+}
+
+.btn.warning {
+  background: var(--warning-color);
+  color: var(--dark-color);
+}
+
+.btn.info {
+  background: var(--info-color);
+}
+
+.btn.light {
+  background: var(--light-color);
+  color: var(--dark-color);
+}
+
+.btn.dark {
+  background: var(--dark-color);
 }
 
 .btn.login {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+  background: var(--primary-color);
 }
 
 .btn.register {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+  background: var(--success-color);
 }
 
-.btn.edit {
-    background: linear-gradient(135deg, #27ae60, #219a52);
+.btn.add-event {
+  background: var(--primary-color);
+  margin-top: 0.75rem;
 }
 
-.btn.delete {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
+.btn.submit {
+  background: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  color: var(--dark-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .no-events.modern {
-    text-align: center;
-    padding: 60px;
-    background: linear-gradient(135deg, #ffffff, #f8f9fa);
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 60px;
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .no-events.modern i {
-    font-size: 4em;
-    color: #95a5a6;
-    margin-bottom: 20px;
+  font-size: 4em;
+  color: #95a5a6;
+  margin-bottom: 20px;
 }
 
 .no-events.modern p {
-    font-size: 1.2em;
-    color: #7f8c8d;
-    margin-bottom: 15px;
+  font-size: 1.2em;
+  color: #7f8c8d;
+  margin-bottom: 15px;
 }
 
 .no-events.modern a {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: 500;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .no-events.modern a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
-    .event-card.modern {
-        flex-direction: column;
-    }
+  .container {
+    padding: 1rem;
+  }
 
-    .event-card.modern .event-time {
-        min-width: 100%;
-        text-align: center;
-    }
+  .event-card.modern {
+    flex-direction: column;
+  }
 
-    .welcome-section.modern {
-        padding: 40px 20px;
-    }
+  .event-card.modern .event-time {
+    min-width: 100%;
+    text-align: center;
+  }
 
-    .welcome-actions {
-        flex-direction: column;
-        gap: 15px;
-    }
+  .welcome-section.modern {
+    padding: 40px 20px;
+  }
 
-    .btn {
-        width: 100%;
-        justify-content: center;
-    }
+  .welcome-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .event-form {
+    padding: 1.5rem;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .calendar-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .day {
+    min-height: 80px;
+    padding: 0.5rem;
+  }
+
+  .events {
+    margin-top: 1.5rem;
+  }
+
+  .date {
+    top: 0.25rem;
+    right: 0.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.75rem;
+  }
 }

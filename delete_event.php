@@ -5,12 +5,14 @@ require_once 'includes/session.php';
 requireLogin(); // Redirect if not logged in
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    
-    $sql = "DELETE FROM events WHERE id = ?";
+    $id      = $_GET['id'];
+    $user_id = $_SESSION['user_id']; // Get the current user's ID
+
+    // Only delete the event if it belongs to the current user
+    $sql  = "DELETE FROM events WHERE id = ? AND user_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    
+    $stmt->bind_param("ii", $id, $user_id);
+
     $stmt->execute();
 }
 
