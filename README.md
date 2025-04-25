@@ -2,7 +2,6 @@
 
 Agenda is a lightweight, user-friendly web application for managing personal events and appointments. It provides a clean interface for users to create, view, edit, and delete their events through both a list view and an interactive calendar. The application includes both a user interface for managing personal events and an admin interface for system management.
 
-![Agenda Screenshot](https://via.placeholder.com/800x400?text=Agenda+Screenshot)
 
 ## Features
 
